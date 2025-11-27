@@ -77,6 +77,13 @@
         overflow: scroll;
         scrollbar-width: none;
       }
+
+      .start-message {
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+        color: rgb(10, 10, 10);
+      }
     </style>
   </head>
   <body>
@@ -188,6 +195,11 @@
 
         return (
           <div className="app-container">
+            {chatMessages.length === 0 && (
+              <p className="start-message">
+                Enter the Message and Click On Send
+              </p>
+            )}
             <ChatMessages chatMessages={chatMessages} />
             <ChatInput
               chatMessages={chatMessages}
