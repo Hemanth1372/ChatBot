@@ -1,0 +1,149 @@
+Things we need to know prior in React
+
+Before writing the code in React we have to import some external libraries like
+
+https://unpkg.com/supersimpledev/react.js -- For shared features of websites and apps
+
+https://unpkg.com/supersimpledev/react-dom.js -- For websites
+
+https://unpkg.com/supersimpledev/babel.js -- JSX to JS compiler
+
+--Class 1--
+--Introduction--
+1.React is an external library that would help us create website easier.
+
+2.External Library -- which is outside of the computer, so react is a bunch of code that is external to our computer and we gonna use it in our website.
+
+3.For websites we are gonna use React + ReactDOM and for the mobile apps React + ReactNative
+
+4.render -- display something (feature)
+
+5.ReactDOM.createRoot(container).render();
+
+6.Babel -- JS compiler
+-- While writing the react we don't use directly JS we use an enhanced version of JS + XML -- JSX we can write Html and JS into it, Babel is used to compile these into JS. 7. We call building websites using JSX is easier because we can write simple html and find the errors easily and insert the values in the {} through interpolation.
+
+--things learned--
+const date = dayjs().format("MMMM D");
+console.log(date);
+const time = dayjs().format("HH:mm:ss");
+console.log(time);
+
+-- Class 2--
+-- Components--
+1.All the components names in the react starts with the capital letters.
+-- Components are piece of the websites, we can create our own HTML elements using components.
+function ChatInput() but not chatInput()
+
+2.All elements need a closing tag including the tags like <input>
+but we can simply do it like <input />
+
+3. Fragemnts <></> used o create a div without actually using <div> tag
+
+4. Components are used to be reusable.
+
+5. We can send the parameters in the components and we call here them as props (properties).
+
+6. Destructuring --
+   const mess = props.message
+   const sender = props.sender
+   this is as same as,
+   const {mess, sender} = props;
+
+7. In JSX we are gonna implement the if using guard operator
+   {val1 && val2} if val1 is true then val2
+8. Create an App Components.
+
+--Class 3--
+--State--
+1.Arrays contains some specified functionalities called map, which returns
+a value for each of the object in the array
+
+2. Event handlers -- Runs a function when we interact with the website.
+
+onClick -> event
+The event prop should always has camelCase
+
+onClick = {} -> thing in the braces is event handler
+Event handler shouldn't be end with ()
+
+3.crypto.randomUUID -- JS functionality used to always generate a random number
+used when we are using map over the elements of the array and need to have unique keys for each element.
+
+4. State --> Data that is associated with the HTML, if there is a change in the data and it need to be updated in the HTML the concept of the state come into picture.
+
+State contains two types of information
+
+1. Data, 2. Updater function
+
+Syntax for it :
+let arr = React.useState([])
+in this first data = arr[0];
+represents the values or information
+arr[1] represents the setter function or updater function, where if we need to update the data we have to call this function, if not the data will not be updated in the arr[0].
+
+5. In react we dont directly update the data we make a copy of the data and gonna make changes on the data.
+
+6. In order to make a copy of it we use
+   spread Operator (...)
+
+7. How to get an input field text using an event handler called onChange={}
+
+8. Lifting up the functionalities of one component to share with the other we call it as roll up so that other components can use them.
+
+After Lifting up we have to carefully assign all the requirements for each of the components.
+
+9. Controlled inputs -> Since after sending the message the input filed should be empty inorder to do that we use "value" prop which directly associated with input field if we change it, it will directly update the input field in html this can be done by setting the updater function input values null.
+
+10. Rolling up and drill down need to be understood the complete flow of data throught the components
+
+11. Here while getting a response sometime takes time using updater function so meanwhile there is a chance of losing the messages so inorder to solve this, we use an external variable to store the updaterfunction and we use that updater function variable as the parameter for the function.
+
+12. parseInt() -- function used to convert a string to a integer.
+    Whatever value we get from the state is a string.
+
+13. Things need to know using onKeyDown ---
+    onKeyDown={(event) => {
+    if (event.key === "Enter") ExampleText();
+    if (event.key === "Escape") ClearText();
+    }
+
+-- have to use the function along braces
+
+14. setChatMessages(
+    (prev) => prev.map((msg) =>
+    msg.id === "loading" ?
+    {...msg, message:respone,id:crypto.randomUUID }
+    : msg));
+
+Helps to modify the content
+
+-- Class 4---
+--Hooks--
+
+1. React have the reserved keyword class so it can't be used, so for that we use “className” in JSX for determining class.
+
+2. Many UI features have been added into it
+
+React Hooks
+
+-- Hook statements always should be at the top of the component, and they should be not be inside any elements.
+
+-- useEffect() --> Helps to run the code whenever any component is created or updated.
+
+Syntax of useEffect contains two things,
+
+1. Function -- peace of code to run
+2. Dependency array -- On what basis it has to run
+
+useEffect(() => {}, [chatMessages])
+
+-- if there is a change in chatMessages then this code will run
+
+--useRef() ---> Helps to get the all the HTML code of a component
+we can do it
+let elem = React.useRef(null);
+
+in the component from which we want to get html we introduce a prop, called ref = “elem”
+
+-- To scroll to the bottom we gonna use the scrollTop = scrollHeight which means we are going to scroll till the bottom
