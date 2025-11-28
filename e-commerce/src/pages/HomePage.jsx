@@ -24,7 +24,7 @@ function Homepage() {
               <span className="orders-text">Orders</span>
             </a>
 
-            <a className="cart-link header-link" href="checkout.html">
+            <a className="cart-link header-link" href="checkout">
               <img className="cart-icon" src="images/icons/cart-icon.png" />
               <div className="cart-quantity">3</div>
               <div className="cart-text">Cart</div>
