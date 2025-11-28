@@ -147,3 +147,25 @@ let elem = React.useRef(null);
 in the component from which we want to get html we introduce a prop, called ref = “elem”
 
 -- To scroll to the bottom we gonna use the scrollTop = scrollHeight which means we are going to scroll till the bottom
+
+
+--Routers--
+Routing -- lets us create multiple pages in  react
+
+Routing lets us use the single HTML page and reuse it for multiple pages
+
+<Routes> -- Component tell the react all the routes present in our website
+<Route> is the smallest component of the Routes
+
+1.<Route> contains two props
+-- path (Contains URL of the page)
+-- element (Associated Component of the page)
+
+2.The Homepage either can be set as "/" or index
+
+There is a Property in React-Router called Link which helps to move from one to another website without reload. 
+If we reload some static websites if we didn't store in local storage will reset all the data everytime so inorder to overcome that part we move across web pages without actually reloading the pages using link
+
+link contains an attrib called to, to which webpage we are heading to...
+So instead of <a> anchor tag we use <Link> instread of href we use to 
+
