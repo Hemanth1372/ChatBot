@@ -1,6 +1,6 @@
 import "./OrdersPage.css"
 import "./header.css"
-export function Orders() {
+function OrdersPage() {
     return (
       <>
         <title>Orders</title>
@@ -168,4 +168,6 @@ export function Orders() {
       </>
     );
 }
+
+export default OrdersPage;
 
